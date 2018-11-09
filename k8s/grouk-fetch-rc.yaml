@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: fetch
+  namespace: grouk
+  labels:
+    name: fetch
+spec:
+  replicas: 1
+  selector:
+    name: fetch
+  template:
+    metadata:
+      labels:
+        name: fetch
+    spec:
+      containers:
+      - name: fetch
+        image: harbor.tiejin.cn/closer/umscloud-fetchserver:latest
+        env:
+        - name: UMSCLOUD_FETCHSERVER_OPTS
+          value: -Denv=test -Dserver_id=grouk_api_server_0 -Dserver_num=0 -Dumscloud_outerip=api.demo.grouk.io -Ddomain=grouk -DpublicApiHost=http://api.demo.grouk.io -DpublicFileHost=http://file.demo.grouk.io -DwebHost=http://web.demo.grouk.io
+        ports:
+        - containerPort: 6789
+        imagePullPolicy: IfNotPresent
+
+  restartPolicy: Always

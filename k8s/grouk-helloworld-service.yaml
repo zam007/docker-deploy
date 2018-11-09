@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld
+  namespace: grouk
+  labels:
+    name: helloworld
+spec:
+  ports:
+    # the port that this service should serve on
+  - port: 80
+    name: "http"
+    targetPort: 3000
+
+  selector:
+    name: helloworld
+
+#  type: NodePort
+  clusterIP:  10.254.2.99

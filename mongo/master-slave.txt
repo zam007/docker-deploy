@@ -1,0 +1,60 @@
+MongoDB replica set
+
+用mongodb的replica set 实现master slave 配置
+
+
+1. 启动当前的mongodb的时候增加replication配置项目
+
+    1. replication:
+          replSetName: rs
+2. 准备好新的服务的数据目录，将前面启动的mongodb的数据copy过去
+3. 启动第二台mongodb，使用和上面一致的配置
+4. 登录到第一台mongo的shell中
+
+    1. conf={
+            _id: "rs",
+            members: [{
+                _id: 0,
+                host: "10.0.1.7:27017",
+                priority: 1
+            }, {
+                _id: 1,
+                host: "10.0.1.7:27018",
+                priority: 0,
+                votes: 0
+            }]
+        };
+        rs.initiate(conf)
+        rs.conf()
+        rs.status()
+5. 登录到第二台mongo中
+
+    1. rs.status() //观察
+        rs.slaveOk() //允许slave工作 这个操作每次连接到从库都需要调用一次
+        rs.xxx.find() //检查最新数据是否同步
+
+6. 线上配置
+
+    1. conf={
+            _id: "rs_prod",
+            members: [{
+                _id: 0,
+                host: "10.0.1.10:27017",
+                priority: 1
+            }, {
+                _id: 1,
+                host: "10.0.1.11:27017",
+                priority: 0,
+                votes: 0
+            }]
+        };
+        rs.initiate(conf)
+        rs.conf()
+        rs.status()
+7. 线上服务器
+    1. 10.0.1.10 主
+    2. 10.0.1.11 从库
+
+    从库重启: rs.slaveOk();
+    主库:cfg=rs.conf(); rs.reconfig(cfg);
+

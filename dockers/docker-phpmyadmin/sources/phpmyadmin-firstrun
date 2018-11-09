@@ -1,0 +1,4 @@
+#!/bin/bash
+mysql --host=$PMA_HOST --port=$PMA_PORT --user=$PMA_USERNAME --password=$PMA_PASSWORD < /www/examples/create_tables.sql
+
+rm /usr/local/bin/phpmyadmin-firstrun

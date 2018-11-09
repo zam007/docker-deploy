@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: file
+  namespace: grouk
+  labels:
+    name: file
+spec:
+  ports:
+    # the port that this service should serve on
+  - port: 80
+    name: "http"
+    targetPort: 2088
+
+  selector:
+    name: file
+
+#  type: NodePort
+  clusterIP:  10.254.2.12

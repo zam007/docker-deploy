@@ -1,0 +1,58 @@
+[
+  {
+    "server_id": "0",
+    "server_name": "A",
+    "endpoint": [
+      {
+        "protocol": "HTTP",
+        "inter": "192.168.1.124:2088"
+      },
+      {
+        "protocol": "RPC",
+        "inter": "192.168.1.124:8082"
+      }
+    ]
+  },
+  {
+    "server_id": "1",
+    "server_name": "B",
+    "endpoint": [
+      {
+        "protocol": "HTTP",
+        "inter": "192.168.1.125:2088"
+      },
+      {
+        "protocol": "RPC",
+        "inter": "192.168.1.125:8082"
+      }
+    ]
+  },
+  {
+    "server_id": "2",
+    "server_name": "C",
+    "endpoint": [
+      {
+        "protocol": "HTTP",
+        "inter": "192.168.1.126:2088"
+      },
+      {
+        "protocol": "RPC",
+        "inter": "192.168.1.126:8082"
+      }
+    ]
+  },
+  {
+    "server_id": "10000",
+    "server_name": "D",
+    "endpoint": [
+      {
+        "protocol": "HTTP",
+        "inter": "192.168.1.127:2088"
+      },
+      {
+        "protocol": "RPC",
+        "inter": "192.168.1.127:8082"
+      }
+    ]
+  }
+]

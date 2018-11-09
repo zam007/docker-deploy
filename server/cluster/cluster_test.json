@@ -1,0 +1,24 @@
+[
+  {
+    "server_id": "ums_server_0",
+    "endpoint": [
+      {
+        "protocol": "GW",
+        "outer": "dev.grouk.com:8081",
+        "ssl": "dev.grouk.com:4081",
+        "inter": "10.0.1.6:8081"
+      },
+      {
+        "protocol": "WEB_SOCKET",
+        "outer": "dev.grouk.com:8088",
+        "ssl": "dev.grouk.com:4088",
+        "inter": "10.0.1.6:8088"
+      },
+      {
+        "protocol": "RPC",
+        "outer": "10.0.1.6:8082",
+        "inter": "10.0.1.6:8082"
+      }
+    ]
+  }
+]

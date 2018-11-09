@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: web
+  namespace: grouk
+  labels:
+    name: web
+spec:
+  replicas: 1
+  selector:
+    name: web
+  template:
+    metadata:
+      labels:
+        name: web
+    spec:
+      containers:
+      - name: web
+        image: harbor.tiejin.cn/closer/grouk-web:latest
+        ports:
+        - containerPort: 80
+        imagePullPolicy: IfNotPresent
+  restartPolicy: Always

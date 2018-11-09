@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: helloworld
+  namespace: grouk
+  labels:
+    name: helloworld
+spec:
+  replicas: 2
+  selector:
+    name: helloworld
+  template:
+    metadata:
+      labels:
+        name: helloworld
+    spec:
+      containers:
+      - name: helloworld
+        image: harbor.tiejin.cn/closer/umscloud-go-helloworld:latest
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: IfNotPresent
+
+  restartPolicy: Always

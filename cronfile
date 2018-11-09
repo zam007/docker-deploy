@@ -1,0 +1,2 @@
+#remove the docker file for each machine
+0 2 * * * /data/deploy/docker_images_clean.sh

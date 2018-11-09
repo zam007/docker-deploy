@@ -1,0 +1,46 @@
+[
+  {
+    "server_id": "ums_server_0",
+    "endpoint": [
+      {
+        "protocol": "GW",
+        "outer": "dev.tiejin.cn:18281",
+        "ssl": "dev.tiejin.cn:14281",
+        "inter": "10.0.3.94:8081"
+      },
+      {
+        "protocol": "WEB_SOCKET",
+        "outer": "dev.tiejin.cn:18288",
+        "ssl": "dev.tiejin.cn:14288",
+        "inter": "10.0.3.94:8088"
+      },
+      {
+        "protocol": "RPC",
+        "outer": "10.0.3.94:8082",
+        "inter": "10.0.3.94:8082"
+      }
+    ]
+  },
+  {
+    "server_id": "ums_server_1",
+    "endpoint": [
+      {
+        "protocol": "GW",
+        "outer": "dev.tiejin.cn:18281",
+        "ssl": "dev.tiejin.cn:14281",
+        "inter": "10.0.3.94:8181"
+      },
+      {
+        "protocol": "WEB_SOCKET",
+        "outer": "dev.tiejin.cn:18288",
+        "ssl": "dev.tiejin.cn:14288",
+        "inter": "10.0.3.94:8188"
+      },
+      {
+        "protocol": "RPC",
+        "outer": "10.0.3.94:8182",
+        "inter": "10.0.3.94:8182"
+      }
+    ]
+  }
+]

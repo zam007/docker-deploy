@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: search
+  namespace: grouk
+  labels:
+    name: search
+spec:
+  replicas: 1
+  selector:
+    name: search
+  template:
+    metadata:
+      labels:
+        name: search
+    spec:
+      containers:
+      - name: search
+        image: harbor.tiejin.cn/closer/umscloud-searchserver:latest
+        args:
+        - grouk_es
+        - elasticsearch:9300
+        env:
+        - name: UMSCLOUD_SEARCHSERVER_OPTS
+          value: -Denv=test -Dserver_id=grouk_api_server_0 -Dserver_num=0 -Dumscloud_outerip=api.demo.grouk.io -Ddomain=grouk -DpublicApiHost=http://api.demo.grouk.io -DpublicFileHost=http://file.demo.grouk.io -DwebHost=http://web.demo.grouk.io
+        ports:
+        - containerPort: 6666
+        - containerPort: 8699
+        imagePullPolicy: IfNotPresent
+
+  restartPolicy: Always

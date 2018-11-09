@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: redis 
+  namespace: grouk
+  labels:
+    name: redis
+spec:
+  replicas: 1
+  selector:
+    name: redis
+  template:
+    metadata:
+      labels:
+        name: redis
+    spec:
+      containers:
+      - name: redis
+        image: harbor.tiejin.cn/closer/umscloud-redis:latest
+        ports:
+        - containerPort: 6379
+        imagePullPolicy: IfNotPresent
+
+  restartPolicy: Always

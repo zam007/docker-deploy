@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mysql-master
+  namespace: grouk
+  labels:
+    name: mysql-master
+spec:
+  replicas: 1
+  selector:
+    name: mysql-master
+  template:
+    metadata:
+      labels:
+        name: mysql-master
+    spec:
+      containers:
+      - name: mysql-master
+        image: harbor.tiejin.cn/closer/umscloud-mysql:latest
+        env:
+        - name: MYSQL_USER
+          value: umscloud_db
+        - name: MYSQL_PASS
+          value: iBcAPT8D7vRnCda 
+        - name: SERVER_ID
+          value: "1"
+        ports:
+        - containerPort: 3306
+        imagePullPolicy: IfNotPresent
+
+  restartPolicy: Always
